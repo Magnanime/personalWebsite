@@ -8,6 +8,8 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import java.time.Instant;
 
+//Model for articles
+
 @Entity
 @Table(name = "articles")
 @Getter

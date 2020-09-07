@@ -5,6 +5,8 @@ import lombok.Setter;
 
 import javax.persistence.*;
 
+//Model for users
+
 @Getter
 @Setter
 @Entity
