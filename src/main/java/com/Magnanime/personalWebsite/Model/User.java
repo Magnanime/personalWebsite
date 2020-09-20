@@ -21,4 +21,6 @@ public class User {
     private String password;
     @Column
     private String email;
+    @Column(columnDefinition = "boolean default false")
+    private Boolean enabled;
 }
