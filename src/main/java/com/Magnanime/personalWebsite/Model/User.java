@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 
 //Model for users
 
@@ -15,12 +16,14 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column
+    @Column(unique=true)
     private String userName;
     @Column
     private String password;
     @Column
     private String email;
-    @Column(columnDefinition = "boolean default false")
+    @Column
     private Boolean enabled;
+    @Column
+    private String registrationLetter;
 }

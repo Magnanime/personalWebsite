@@ -13,6 +13,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import javax.validation.ConstraintViolationException;
 import java.util.Optional;
 
 @Service
@@ -30,11 +31,12 @@ public class AuthService {
     @Autowired
     private JwtProvider jwtProvider;
 
-    public void signup(RegisterRequest registerRequest) {
+    public void signup(RegisterRequest registerRequest) throws ConstraintViolationException {
         User user = new User();
         user.setUserName(registerRequest.getUsername());
         user.setEmail(registerRequest.getEmail());
         user.setPassword(encodePassword(registerRequest.getPassword()));
+        user.setRegistrationLetter(registerRequest.getRegistrationLetter());
 
         userRepository.save(user);
     }
