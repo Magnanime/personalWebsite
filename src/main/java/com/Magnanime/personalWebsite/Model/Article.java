@@ -21,7 +21,6 @@ public class Article {
     @NotBlank
     @Column
     private String title;
-    @Lob
     @Column
     @NotEmpty
     private String content;
@@ -29,6 +28,8 @@ public class Article {
     private Instant createdOn;
     @Column
     private Instant updatedOn;
+    @Column
+    private String shortContent;
     @Column
     @NotBlank
     private String username;

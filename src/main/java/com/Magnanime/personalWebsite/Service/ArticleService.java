@@ -57,6 +57,7 @@ public class ArticleService {
         post.setCreatedOn(Instant.now());
         post.setUsername(loggedInUser.getUsername());
         post.setUpdatedOn(Instant.now());
+        post.setShortContent(postDto.getDesc());
         return post;
     }
 }
