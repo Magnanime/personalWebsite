@@ -46,6 +46,7 @@ public class ArticleService {
         postDto.setTitle(post.getTitle());
         postDto.setContent(post.getContent());
         postDto.setUsername(post.getUsername());
+        System.out.println(postDto.getId());
         return postDto;
     }
 
