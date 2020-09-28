@@ -59,6 +59,7 @@ public class ArticleService {
         post.setUsername(loggedInUser.getUsername());
         post.setUpdatedOn(Instant.now());
         post.setShortContent(postDto.getDesc());
+        post.setThumbnailPath(postDto.getThumbnailPath());
         return post;
     }
 }

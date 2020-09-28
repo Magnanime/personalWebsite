@@ -34,4 +34,6 @@ public class Article {
     @Column
     @NotBlank
     private String username;
+    @Column
+    private String thumbnailPath;
 }

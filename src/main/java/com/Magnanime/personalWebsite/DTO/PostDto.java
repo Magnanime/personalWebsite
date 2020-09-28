@@ -13,4 +13,5 @@ public class PostDto {
     private String title;
     private String username;
     private String desc;
+    private String thumbnailPath;
 }
