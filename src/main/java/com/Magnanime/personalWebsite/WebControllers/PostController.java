@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
-import java.util.List;
 
 @RestController
 @RequestMapping("/api/posts/")
@@ -27,16 +26,6 @@ public class PostController {
     public ResponseEntity createPost(@RequestBody PostDto postDto) {
         articleService.createPost(postDto);
         return new ResponseEntity(HttpStatus.OK);
-    }
-
-    @GetMapping("/all")
-    public ResponseEntity<List<PostDto>> showAllPosts() {
-        return new ResponseEntity<>(articleService.showAllPosts(), HttpStatus.OK);
-    }
-
-    @GetMapping("/get/{id}")
-    public ResponseEntity<PostDto> getSinglePost(@PathVariable @RequestBody Long id) {
-        return new ResponseEntity<>(articleService.readSinglePost(id), HttpStatus.OK);
     }
 
     @PostMapping("/image")
