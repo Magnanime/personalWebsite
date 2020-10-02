@@ -19,8 +19,7 @@ public class ImageService {
     ApplicationConfigurationProperties properties;
 
     public String makeUniqueFilename(String filename){
-        String uniqueFilename = Instant.now().getEpochSecond() + filename;
-        return uniqueFilename;
+        return Instant.now().getEpochSecond() + filename;
     }
 
     public String createImageDirectory(){

@@ -17,7 +17,6 @@ public class UploadController {
 
     @PostMapping("/image")
     public ImagePathResponse uploadImage (@RequestParam("imageFile") MultipartFile image) throws IOException {
-        ImagePathResponse response = new ImagePathResponse(imageService.save(image));
-        return response;
+        return new ImagePathResponse(imageService.save(image));
     }
 }

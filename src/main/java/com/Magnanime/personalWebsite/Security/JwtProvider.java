@@ -41,13 +41,10 @@ public class JwtProvider {
         try {
             //todo: Hide Password!!!
             return (PrivateKey) keystore.getKey("personalWebsite", "temporary".toCharArray());
-        } catch (KeyStoreException e) {
+        } catch (KeyStoreException | UnrecoverableKeyException e) {
             e.printStackTrace();
             return null;
         } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
-            return null;
-        } catch (UnrecoverableKeyException e) {
             e.printStackTrace();
             return null;
         }
@@ -60,7 +57,7 @@ public class JwtProvider {
 
     private PublicKey getPublicKey() {
         try {
-            return (PublicKey) keystore.getCertificate("personalWebsite").getPublicKey();
+            return keystore.getCertificate("personalWebsite").getPublicKey();
         } catch (KeyStoreException e) {
             e.printStackTrace();
             return null;
