@@ -7,4 +7,8 @@ import lombok.Setter;
 @Setter
 public class ImagePathResponse {
     private String pathName;
+
+    public ImagePathResponse(String pathName){
+        this.pathName = pathName;
+    }
 }

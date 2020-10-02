@@ -1,4 +1,4 @@
-package com.Magnanime.personalWebsite.Service;
+package com.Magnanime.personalWebsite.DTO;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

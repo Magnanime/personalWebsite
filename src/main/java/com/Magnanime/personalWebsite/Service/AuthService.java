@@ -1,5 +1,6 @@
 package com.Magnanime.personalWebsite.Service;
 
+import com.Magnanime.personalWebsite.DTO.AuthenticationResponse;
 import com.Magnanime.personalWebsite.DTO.LoginRequest;
 import com.Magnanime.personalWebsite.DTO.RegisterRequest;
 import com.Magnanime.personalWebsite.Model.User;

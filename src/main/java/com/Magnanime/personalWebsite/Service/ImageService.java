@@ -23,11 +23,18 @@ public class ImageService {
         return uniqueFilename;
     }
 
-    public String save(MultipartFile image) throws IOException {
+    public String createImageDirectory(){
         //Get image storage directory path
         String dir = System.getProperty("user.dir") + properties.getImageSaveDirName();
         //Create directory if not existent
         new File(dir).mkdirs();
+        //Return created directory
+        return dir;
+    }
+
+    public String save(MultipartFile image) throws IOException {
+        //Initialise directory
+        String dir = createImageDirectory();
         //Set unique filename (orig filename + seconds past since Java era)
         String newName = makeUniqueFilename(image.getOriginalFilename());
         Path path = Paths.get(dir + newName);

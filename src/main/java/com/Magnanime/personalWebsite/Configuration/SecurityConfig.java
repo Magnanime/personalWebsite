@@ -36,15 +36,28 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     public void configure(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.csrf().disable()
+
+                //Authentication endpoint - open for all
                 .authorizeRequests()
                 .antMatchers("/api/auth/**")
                 .permitAll()
-                .antMatchers("/api/posts/**")
+
+                //Image service endpoint - open for all to see, deletions and postings only logged in users (For now no admin role)
+                .antMatchers(HttpMethod.GET,"/images/**")
                 .permitAll()
-                .antMatchers("/**")
+                .antMatchers(HttpMethod.DELETE,"/images/**")
+                .hasRole("USER")
+                .antMatchers(HttpMethod.POST,"/images/**")
+                .hasRole("USER")
+
+                //Article service endpoint - open for all to see, deletions and postings only logged in users (For now no admin role)
+                .antMatchers(HttpMethod.GET,"/api/articles/**")
                 .permitAll()
-                .antMatchers("/api/articles/**")
-                .permitAll()
+                .antMatchers(HttpMethod.DELETE,"/api/articles/**")
+                .hasRole("USER")
+                .antMatchers(HttpMethod.POST,"/api/articles/**")
+                .hasRole("USER")
+
                 .anyRequest()
                 .authenticated();
         httpSecurity.addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);

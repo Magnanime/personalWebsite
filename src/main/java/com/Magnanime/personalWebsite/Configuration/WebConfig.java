@@ -4,7 +4,6 @@ package com.Magnanime.personalWebsite.Configuration;
 import org.apache.commons.lang3.SystemUtils;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -29,7 +28,7 @@ public class WebConfig implements WebMvcConfigurer {
                     .addResourceLocations("file:///" + System.getProperty("user.dir") + "/images/");
         } else {
             registry
-                    .addResourceHandler("/**")
+                    .addResourceHandler("/images/**")
                     .addResourceLocations("file:" + System.getProperty("user.dir") + "/images/");
         }
     }
