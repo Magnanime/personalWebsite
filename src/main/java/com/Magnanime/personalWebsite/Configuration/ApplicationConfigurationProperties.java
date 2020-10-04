@@ -22,4 +22,7 @@ public class ApplicationConfigurationProperties {
     private String registrationResponseTitle;
     private String registrationResponseBody;
     private String registrationFrom;
+
+    /** Keystore properties */
+    private String keystorePassword;
 }
